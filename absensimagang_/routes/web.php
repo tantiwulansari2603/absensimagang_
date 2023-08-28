@@ -11,9 +11,21 @@
 |
 */
 
+use App\Http\Controllers\Auth\RegisterController;
+
 Route::prefix('admin')
     ->namespace('Admin')
-    ->group(function(){ 
+    ->group(function () {
         // Dashboard
         Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
+
+        Route::get('/register', 'RegisterController@regist');
+    });
+
+Route::prefix('auth')
+    ->namespace('auth')
+    ->group(function () {
+        // Dashboard
+
+        Route::get('/register', 'RegisterController@regist')->name('regist');
     });
